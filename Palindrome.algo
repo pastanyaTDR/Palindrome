@@ -1,0 +1,21 @@
+PROCEDURE IsPalindrome(word)
+    VAR lowercase_word := ConvertToLowercase(word);
+    BEGIN
+    IF Length(lowercase_word) <= 1 THEN
+        RETURN True;  
+    
+    FOR EACH character IN 1 TO Length(lowercase_word) DO
+        IF lowercase_word[character] ≠ lowercase_word[Length(lowercase_word) - character + 1] THEN
+            RETURN False;  
+        END_IF
+    END_FOR
+    
+    RETURN True;
+END
+
+VAR word := "kayak";
+IF IsPalindrome(word) THEN
+    Write(word + " is a palindrome.");
+ELSE
+    Write(word + " is not a palindrome.");
+END_IF
